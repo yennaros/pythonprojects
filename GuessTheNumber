@@ -1,0 +1,27 @@
+#GUESS THE NUMBER
+import random
+
+def guessNumber():
+    trying = int(input("Intenta de nuevo: "))
+    return trying
+
+number = int(random.randint(0,100))
+trying = int(input("Ingresa el numero a adivinar entre 0 a 100: "))
+
+# Range from 1 to 5 units to be warm
+# 6 units to 10 to be warm
+# 10 to 20 to be cold
+# 20 up freezer
+print(number)
+while (trying != number):
+    if(abs(number - trying) <= 5 and abs(number - trying) >= 1):
+        print("Hot")
+    elif(abs(number - trying) > 5 and abs(number - trying) <= 10):
+        print("Warm")
+    elif(abs(number - trying) > 10 and abs(number - trying) <= 20):
+        print("Cold")
+    else:
+        print("You are in a freezer")
+    trying = guessNumber()
+
+print("Congrats! You won!")
