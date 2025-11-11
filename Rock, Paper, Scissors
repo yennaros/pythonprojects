@@ -1,0 +1,52 @@
+# Rock, Paper, Scissors
+
+import random
+
+game_tools = ("Rock", "Paper", "Scissors")
+def computer_selection():
+    game_Selection = game_tools[random.randint(0,2)]
+    return game_Selection
+
+def user_selection():
+    print("\n[1] Rock \n[2] Paper \n[3] Scissors\n")
+    while (True):
+        user_Selection = int(input("Select Rock, Paper or Scissors: "))
+        match user_Selection:
+            case 1:
+                user_Selection = "Rock"
+                return user_Selection
+            case 2: 
+                user_Selection = "Paper"
+                return user_Selection
+            case 3:
+                user_Selection = "Scissors"
+                return user_Selection
+            case _:
+                print("Try again")
+
+
+while (True):
+    pc_selection = computer_selection()
+    print("Welcome to RPS game.")
+    player_selection = user_selection()
+
+    if (pc_selection == player_selection):
+        print("Computer vs You")
+        print(f"{pc_selection} vs {player_selection}\n")
+        print("Tied")
+        
+    elif ((pc_selection is "Rock" and player_selection is "Paper") \
+          or (pc_selection is "Paper" and player_selection is "Scissors") \
+          or (pc_selection is "Scissors" and player_selection is "Rock")):
+        print("Computer vs You")
+        print(f"{pc_selection} vs {player_selection}\n")
+        print("You won!")
+    else: 
+        print("Computer vs You")
+        print(f"{pc_selection} vs {player_selection}\n")
+        print("You Lost :(")
+
+    selection = input("Wanna keep playing? ").strip()
+    if (selection.upper() == 'NO'):
+        print("Okay, game over.")
+        break
